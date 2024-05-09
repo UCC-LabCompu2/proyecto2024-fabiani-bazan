@@ -5,22 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" type="test/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link rel="shorcut icon" href="logo.png"
+    <style>
+        class="tituloprincipal"{
+            color:rgba(0, 9, 139, 0.479);
+            size: 80cap;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        class="titulosecundario"{
+            color: coral;
+        }
+        a:hover{
+            font-size: larger;
+        }
+        a:link{
+            color: darkgreen;
+        }
+        a:visited{
+            color: aquamarine;
+        }
+        b:active{
+            font-weight: bolder;
+        }
+        img{
+            width: 50px;
+            float: left;
+        }
+        body{
+            text-align: center;
+            background: linear-gradient(to right, violet,purple)
+        }
+        div h1{
+            <uniquifier>: class="titles"
+    <weight>: 100
+
+.roboto-mono-<uniquifier> {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+    </style>
 </head>
 <body>
     <header>
+        <div>
         <img class="logo" src="logo.png">
-        <p>Craft SHOP</p>
+        <h1 class="tituloprincipal">Craft SHOP </h1>
+        </div>
     </header>
     <main>
         <img class="cover" src="main-bg.png">
         <div>
             <button><a>DISEÑALO</a></button>
-            <a>Ver modelos</a>
+            <b style="color: darkslategray;">Ver modelos</b>
         </div>
         <section>
             <article>
-                <h2>¿Quienes Somos?</h2>
-                <p>En Craft SHOP ofrecemos a las empresas de calzado
+                <h2 class="titulosecundario" >¿Quienes Somos?</h2>
+                <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">En Craft SHOP ofrecemos a las empresas de calzado
                      la oportunidad de probar sus modelos en nuestro
                       software de ultima generacion</p>
             </article>
