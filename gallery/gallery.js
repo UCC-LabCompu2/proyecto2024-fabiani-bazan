@@ -1,5 +1,9 @@
 
-let totalImages = 5;
+const totalImages = 5;
+
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+
 const gallery = document.getElementById("gallery");
 const galleryDir = "src/gallery/";
 const defaultName = "model";
@@ -13,20 +17,14 @@ for (let i = 1; i <= totalImages; i++) {
     image.classList.add(defaultClass);
     image.alt = `Image${i}`;
     gallery.appendChild(image);
+
+    image.addEventListener('click', () => {
+        modalImg.src = image.src;
+        console.log(image.src);
+        modal.style.display = "flex";
+    });
 }
 
-let isFullscreen;
-        let modal = document.getElementById("modal");
-        let modalImg = document.getElementById("modal-img");
-
-        document.getElementsByClassName("gal-img").forEach(image => {
-        image.addEventListener('click', () => {
-                modalImg.src = image.src;
-                console.log(image.src);
-                modal.style.display = "flex";
-            });
-        });
-
-        modal.addEventListener('click', () =>{
-            modal.style.display = "none";
-        });
+modal.addEventListener('click', () =>{
+    modal.style.display = "none";
+});
