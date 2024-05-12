@@ -1,0 +1,22 @@
+
+body {
+    font-family: "Poppins";
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.p1 {
+    padding: 1rem;
+}
+
+.p2 {
+    padding: 2rem;
+}
+
+.p5 {
+    padding: 5rem;
+}
+
