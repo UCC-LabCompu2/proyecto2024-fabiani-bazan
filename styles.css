@@ -98,3 +98,46 @@ footer > .copy {
     -ms-border-radius: 5rem;
     -o-border-radius: 5rem;
 }
+    a:hover{
+        font-size: 1.4em;
+    }
+    a:active{
+        color: chartreuse;
+    }
+    a:visited{
+        color: brown;
+    }
+
+
+.logo{
+     width: 60px;
+     float: left;
+}
+.logo{
+     width: 60px;
+     float: right;
+}
+.tituloprincipal{
+    color:rgba(0, 9, 139, 0.479);
+    font-size: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cover{
+    width: 700px;
+}
+.titulosecundario{
+    color: coral;
+    font-family: Roboto Mono;
+     font-optical-sizing: auto;
+     font-style: normal;
+}
+p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.pieindex{
+    position: -webkit-sticky;
+}
+.cuerpoindex{
+    text-align: center;
+    background: linear-gradient(to right, violet,rgb(0, 119, 128));
+}
