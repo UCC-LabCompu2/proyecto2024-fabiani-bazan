@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editor de Diseños</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+    #canvas-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#tools-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#tools-container input[type="file"],
+#tools-container input[type="color"] {
+  margin-right: 10px;
+}
+
+</style>
+</head>
+<body>
+<div id="canvas-container">
+  <canvas id="design-canvas" width="500" height="500"></canvas>
+</div>
+<div id="tools-container">
+  <input type="file" id="image-input" accept="image/*">
+  <button id="add-texture-button">Añadir Textura</button>
+  <input type="color" id="texture-color-picker">
+  <button id="clear-canvas-button">Limpiar</button>
+</div>
+<script >
+    document.addEventListener('DOMContentLoaded', function() {
+  const canvas = document.getElementById('design-canvas');
+  const context = canvas.getContext('2d');
+  const imageInput = document.getElementById('image-input');
+  const addTextureButton = document.getElementById('add-texture-button');
+  const textureColorPicker = document.getElementById('texture-color-picker');
+  const clearCanvasButton = document.getElementById('clear-canvas-button');
+
+  let textures = [];
+  let draggingTexture = false;
+  let textureIndex = -1;
+  let offsetX, offsetY;
+
+  imageInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = new Image();
+      img.onload = function() {
+        textures.push({ img: this, x: 0, y: 0, width: 100, height: 100, color: '#000000' });
+        drawTextures();
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  addTextureButton.addEventListener('click', function() {
+    if (textures.length > 0) {
+      textures[textureIndex].color = textureColorPicker.value;
+      drawTextures();
+    }
+  });
+
+  canvas.addEventListener('mousedown', function(event) {
+    const mouseX = event.clientX - canvas.getBoundingClientRect().left;
+    const mouseY = event.clientY - canvas.getBoundingClientRect().top;
+    for (let i = textures.length - 1; i >= 0; i--) {
+      const texture = textures[i];
+      if (mouseX >= texture.x && mouseX <= texture.x + texture.width &&
+          mouseY >= texture.y && mouseY <= texture.y + texture.height) {
+        draggingTexture = true;
+        textureIndex = i;
+        offsetX = mouseX - texture.x;
+        offsetY = mouseY - texture.y;
+        break;
+      }
+    }
+  });
+
+  canvas.addEventListener('mousemove', function(event) {
+    if (draggingTexture) {
+      const mouseX = event.clientX - canvas.getBoundingClientRect().left;
+      const mouseY = event.clientY - canvas.getBoundingClientRect().top;
+      textures[textureIndex].x = mouseX - offsetX;
+      textures[textureIndex].y = mouseY - offsetY;
+      drawTextures();
+    }
+  });
+
+  canvas.addEventListener('mouseup', function() {
+    draggingTexture = false;
+    textureIndex = -1;
+  });
+
+  clearCanvasButton.addEventListener('click', function() {
+    textures = [];
+    drawTextures();
+  });
+
+  function drawTextures() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    textures.forEach(function(texture) {
+      context.save();
+      context.globalAlpha = 0.5;
+      context.fillStyle = texture.color;
+      context.fillRect(texture.x, texture.y, texture.width, texture.height);
+      context.globalAlpha = 1.0;
+      context.drawImage(texture.img, texture.x, texture.y, texture.width, texture.height);
+      context.restore();
+    });
+  }
+});
+
+</script>
+</body>
+</html>

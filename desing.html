@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="desing.css">
 </head>
 <body>
     <header>
@@ -18,7 +19,25 @@
         </div>
     </header>
     <main>
-
+        <canvas class="model"></canvas>
+        <form>
+            <input placeholder="Nombre de la marca:" type="text" name="nombre"/>
+            <select name="material">
+                <option value="cuero">Cuero</option>
+                <option value="lana">Lana</option>
+                <option value="algodon">Algodon</option>
+            </select>
+            <label>Color:</label>
+            <input type="color" name="color"/>
+            <label>Trama:</label>
+            <input type="file" name="trama">
+            <label>Talle:</label>
+            <input type="number">
+            <label>Entrega</label>
+            <input type="date">
+            <input placeholder="Nombre y apellido: " type="text" name="nombre">
+            <input type="submit" value="ENVIAR SOLICITUD">
+        </form>
     </main>
 </body>
 </html>
