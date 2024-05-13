@@ -98,13 +98,13 @@ footer > .copy {
     -ms-border-radius: 5rem;
     -o-border-radius: 5rem;
 }
-    a:hover{
+    .botondi:hover{
         font-size: 1.4em;
     }
-    a:active{
+    .botondi:active{
         color: chartreuse;
     }
-    a:visited{
+    .botondi:visited{
         color: brown;
     }
 
@@ -131,7 +131,7 @@ footer > .copy {
      font-optical-sizing: auto;
      font-style: normal;
 }
-p{
+.textoindex{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .pieindex{
@@ -140,4 +140,12 @@ p{
 .cuerpoindex{
     text-align: center;
     background: linear-gradient(to right, violet,rgb(0, 119, 128));
+}
+.return:hover{
+    font-size: x-large;
+}
+.page-title{
+    text-align: center;
+    font-family: Jersey 25 Charted, sans-serif;
+    font-size: 50px;
 }
